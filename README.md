@@ -103,7 +103,7 @@ baixador_yt/
 ├── README.md           # Este arquivo
 ├── LICENSE             # Licença MIT
 ├── .gitignore          # Arquivos ignorados pelo Git
-├── bin/                # Executáveis FFmpeg (já incluídos!)
+├── bin/                # Executáveis FFmpeg
 │   ├── ffmpeg.exe
 │   ├── ffprobe.exe
 │   └── ffplay.exe
