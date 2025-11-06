@@ -30,6 +30,8 @@ else:
 
 ICONS_FULL_PATH = os.path.join(APPLICATION_BASE_PATH, ICONS_SUBFOLDER_NAME)
 CONFIG_FULL_PATH = os.path.join(APPLICATION_BASE_PATH, CONFIG_PATH)
+FFMPEG_PATH = os.path.join(APPLICATION_BASE_PATH, 'bin', 'ffmpeg.exe')
+FFPROBE_PATH = os.path.join(APPLICATION_BASE_PATH, 'bin', 'ffprobe.exe')
 
 # Carrega configurações ou define valores padrão
 initial_download_folder = os.path.join(APPLICATION_BASE_PATH, DEFAULT_FOLDER)
@@ -129,6 +131,10 @@ class YouTubeMP3Downloader:
             'progress_hooks': [self.progresso],
             'extract_flat': True, # Para playlists, para extrair URLs sem baixar imediatamente
         }
+
+        # Configura o caminho do FFmpeg se existir na pasta bin/
+        if os.path.exists(FFMPEG_PATH):
+            self.ydl_opts['ffmpeg_location'] = os.path.dirname(FFMPEG_PATH)
 
         if selected_format_type == "MP3":
             preferred_quality_audio = selected_quality.replace("kbps", "")

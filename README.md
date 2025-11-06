@@ -27,18 +27,33 @@ Um aplicativo desktop moderno e intuitivo para baixar vídeos e áudios do YouTu
 ### Pré-requisitos
 
 - **Python 3.8 ou superior**
-- **FFmpeg** (já incluído no repositório! 🎉)
+- **FFmpeg** (instalação necessária)
 
-#### FFmpeg Incluído
+#### Instalação do FFmpeg
 
-✅ **Boa notícia!** O FFmpeg já está incluído na pasta `bin/` do repositório:
-- `bin/ffmpeg.exe` - Conversor de mídia
-- `bin/ffprobe.exe` - Analisador de mídia  
-- `bin/ffplay.exe` - Player de mídia
+⚠️ **Importante!** O FFmpeg precisa ser instalado no seu sistema:
 
-**Para outros sistemas operacionais:**
-- **macOS**: `brew install ffmpeg`
-- **Linux**: `sudo apt install ffmpeg`
+**Windows:**
+1. Baixe do site oficial: [ffmpeg.org](https://ffmpeg.org/download.html)
+2. Extraia os arquivos e adicione ao PATH do sistema
+3. Ou use: `choco install ffmpeg` (se tiver Chocolatey)
+4. Ou use: `winget install ffmpeg` (Windows 10+)
+
+**macOS:**
+```bash
+brew install ffmpeg
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt update
+sudo apt install ffmpeg
+```
+
+Para verificar se está instalado corretamente, execute:
+```bash
+ffmpeg -version
+```
 
 ### Instalação do Projeto
 
@@ -66,8 +81,6 @@ pip install -r requirements.txt
 ```bash
 python main.py
 ```
-
-**🎉 Pronto!** O FFmpeg já está incluído, então não precisa de configuração adicional!
 
 ## 📖 Como Usar
 
@@ -103,10 +116,8 @@ baixador_yt/
 ├── README.md           # Este arquivo
 ├── LICENSE             # Licença MIT
 ├── .gitignore          # Arquivos ignorados pelo Git
-├── bin/                # Executáveis FFmpeg
-│   ├── ffmpeg.exe
-│   ├── ffprobe.exe
-│   └── ffplay.exe
+├── CONTRIBUTING.md     # Guia de contribuição
+├── CODE_OF_CONDUCT.md  # Código de conduta
 └── icons/              # Ícones da interface
     ├── download.png
     ├── playlist.png
@@ -158,8 +169,9 @@ O projeto segue uma arquitetura orientada a objetos com a classe principal `YouT
 ## 🐛 Resolução de Problemas
 
 ### Erro: "FFmpeg not found"
-- Certifique-se de que o FFmpeg está instalado e no PATH
-- Ou coloque os executáveis na pasta do projeto
+- Certifique-se de que o FFmpeg está instalado no sistema
+- Verifique se está no PATH: `ffmpeg -version`
+- Reinstale o FFmpeg seguindo as instruções de instalação acima
 
 ### Erro: "couldn't open 'icons/...'"
 - Verifique se a pasta `icons/` existe e contém todos os arquivos PNG

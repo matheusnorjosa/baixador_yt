@@ -133,6 +133,9 @@ config.json
 downloads_mp3/
 *.exe
 
+# FFmpeg binários locais
+bin/
+
 # Arquivos de desenvolvimento
 comandos.txt
 documentação.txt
